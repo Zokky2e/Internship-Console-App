@@ -10,7 +10,7 @@ namespace test_20221003
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string OIB { get; set; }
+        private string OIB { get; set; }
         public Leader(string name, string surname, string oib)
         {
             Name = name;
