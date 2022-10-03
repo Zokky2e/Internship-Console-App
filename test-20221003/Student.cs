@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace test_20221003
 {
-    public class Student : IPerson
+    public class Student : Person
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -30,6 +30,15 @@ namespace test_20221003
             }
 
 
+        }
+        public void DoAllTasks()
+        {
+            Tasks.Clear();
+            Console.WriteLine("Student done all the tasks!");
+        }
+        public override string ToString()
+        {
+            return  Name + " " + Surname;
         }
     }
 }

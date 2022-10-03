@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace test_20221003
 {
-    public interface IPerson
+    public abstract class Person
     {
         string Name { get; set; }
         string Surname { get; set; }
         string OIB { get; set; }
+
+        public override string ToString()
+        {
+            return (Name + " " + Surname);
+        }
     }
 }

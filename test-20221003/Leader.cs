@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace test_20221003
 {
-    public class Leader : IPerson
+    public class Leader : Person
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -20,6 +20,10 @@ namespace test_20221003
         public void GiveTask(Student person, Task task)
         {
             person.Tasks.Add(task);
+        }
+        public override string ToString()
+        {
+            return "Lead Person " + Name + " " + Surname;
         }
     }
 }
