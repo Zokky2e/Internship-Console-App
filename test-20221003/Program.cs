@@ -8,6 +8,7 @@ Console.WriteLine(leader.ToString());
 Internship internship = new Internship("Mono", leader);
 Console.WriteLine("How many students are attending the internship?");
 int numberOfStudents = int.Parse(Console.ReadLine());
+
 for (int i = 0; i < numberOfStudents; i++)
 {
     Console.WriteLine("Student number " + (i + 1));
@@ -20,6 +21,7 @@ for (int i = 0; i < numberOfStudents; i++)
     Student student = new Student(name, surname, oib);
     internship.AddStudent(student);
 }
+
 string exit;
 do
 {
@@ -37,6 +39,7 @@ do
         case "2": DoStudentWork(); break;
         default: break;
     }
+    Console.WriteLine("===========================");
     Console.Write("Are you done using the app Y/N?");
     exit = Console.ReadLine();
 } while (!(exit == "y" || exit == "Y"));
@@ -64,11 +67,14 @@ void DoLeaderWork()
             case "3": DoGiveTask(); break;
             default: break;
         }
+        Console.WriteLine("===========================");
         Console.Write("Is leader work done Y/N?");
         exit = Console.ReadLine();
     } while (!(exit == "y" || exit=="Y"));
-    
+
+
 }
+
 void DoAddStudent()
 {
     Console.WriteLine("Enter info of the student:");
@@ -84,20 +90,18 @@ void DoAddStudent()
 
 void DoRemoveStudent()
 {
-    ListPrinter.PrintList(internship.Students);
-    Console.Write("Enter the student from list above!\n Number: ");
-    int indexOfStudent = int.Parse(Console.ReadLine());
+    
+    int indexOfStudent = ListPrinter.PrintList(internship.Students, "Enter the student from list above!\n Number: ");
     internship.RemoveStudent(internship.Students[indexOfStudent-1]);
 }
+
 void DoGiveTask()
 {
-    ListPrinter.PrintList(internship.Students);
-    Console.Write("Enter the student from list above!\n Number: ");
-    int indexOfStudent = int.Parse(Console.ReadLine());
+    int indexOfStudent = ListPrinter.PrintList(internship.Students, "Enter the student from list above!\n Number: ");
     Console.WriteLine("Enter task information:");
     Console.Write("Title: ");string title = Console.ReadLine();
     Console.Write("description: "); string description = Console.ReadLine();
-    Console.Write("Due Date(format: DD/MM/YYYY): "); string dueDate = Console.ReadLine();
+    Console.Write("Due Date(format: MM/DD/YYYY): "); string dueDate = Console.ReadLine();
     Task task = new Task(title, description, dueDate);
     internship.Leader.GiveTask(internship.Students[indexOfStudent - 1], task);
 
@@ -108,9 +112,7 @@ void DoStudentWork()
     string exit;
     do
     {
-        ListPrinter.PrintList(internship.Students);
-        Console.Write("Which student are you?\n Number: ");
-        int indexOfStudent = int.Parse(Console.ReadLine());
+        int indexOfStudent =ListPrinter.PrintList(internship.Students, "Which student are you?\n Number: ");
         string entry;
         do
         {
@@ -129,18 +131,23 @@ void DoStudentWork()
             case "3": PlayVideoGames(); break;
             default: break;
         }
+
+        Console.WriteLine("===========================");
         Console.Write("Is student work done Y/N?");
         exit = Console.ReadLine();
     } while (!(exit == "y" || exit == "Y"));
 }
+
 void DoATask(Student student)
 {
     student.DoTask();
 }
+
 void DoAllTasks(Student student)
 {
     student.DoAllTasks();
 }
+
 void PlayVideoGames()
 {
     Console.WriteLine("Pew pew, there goes an hour of work!");

@@ -12,7 +12,7 @@ namespace test_20221003
         public string Surname { get; set; }
         public string OIB { get; set; }
         public List<Task> Tasks { get; set; }
-        public Student(string name, string surname, string oib )
+        public Student(string name, string surname, string oib)
         {
             Name = name;
             Surname = surname;
@@ -38,7 +38,7 @@ namespace test_20221003
         }
         public override string ToString()
         {
-            return  Name + " " + Surname;
+            return Name + " " + Surname;
         }
     }
 }

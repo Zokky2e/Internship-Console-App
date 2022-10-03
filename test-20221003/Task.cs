@@ -12,11 +12,11 @@ namespace test_20221003
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
 
-        public Task ( string title, string description, string dueDate)
+        public Task(string title, string description, string dueDate)
         {
             Title = title;
             Description = description;
-            DueDate = DateTime.Parse (dueDate);
+            DueDate = DateTime.Parse(dueDate);
         }
     }
 }

@@ -9,10 +9,10 @@ namespace test_20221003
     public class Internship : IInternship
     {
         public string Name { get; set; }
-        
+
         public Leader Leader { get; set; }
         public List<Student> Students { get; set; }
-      
+
         public Internship(string name, Leader leader)
         {
             Name = name;

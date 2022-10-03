@@ -8,7 +8,7 @@ namespace test_20221003
 {
      static class ListPrinter
     {
-        static public void PrintList(List<Student> students)
+        static public int PrintList(List<Student> students, string message)
         {
             int counter = 0;
             foreach (Student student in students)
@@ -16,6 +16,9 @@ namespace test_20221003
                 counter++;
                 Console.WriteLine(counter + "." + " " +student.ToString());
             }
+            Console.Write(message);
+            int index = int.Parse(Console.ReadLine());
+            return index;
         }
     }
 }
