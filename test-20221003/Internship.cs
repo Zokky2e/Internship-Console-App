@@ -27,5 +27,9 @@ namespace test_20221003
         {
             Students.Remove(student);
         }
+        public override string ToString()
+        {
+            return "Internship in " + Name;
+        }
     }
 }
